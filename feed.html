@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feed</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/feed.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header-container"></header>
+
+  <main>
+    <div class="feed-main-wrapper">
+      <section class="feed-container-custom">
+        <div class="feed-row-custom flex-grow-1 d-flex">
+          <!-- Botón para mostrar/ocultar sidebar en móviles -->
+          <button class="sidebar-toggle-custom d-md-none" id="sidebarToggle">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <!-- Barra lateral -->
+          <aside class="feed-sidebar-custom text-white flex-shrink-0">
+            <section class="sidebar-section">
+              <hr class="sidebar-divider" />
+              <nav>
+                <button class="sidebar-nav-btn d-flex align-items-center mt-5" onclick="window.location.href='index.html'">
+                  <i class="bi bi-house-door-fill me-3"></i>
+                  <span class="fw-medium">Inicio</span>
+                </button>
+                <button class="sidebar-nav-btn d-flex align-items-center" onclick="window.location.href='experts.html'">
+                  <i class="bi bi-patch-check-fill me-3"></i>
+                  <span class="fw-medium">Expertos verificados</span>
+                </button>
+                <button class="sidebar-nav-btn d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#newPostModal">
+                  <i class="bi bi-plus-circle-fill me-3"></i>
+                  <span class="fw-medium">Crear nueva publicación</span>
+                </button>
+              </nav>
+            </section>
+
+            <hr class="sidebar-divider" />
+
+            <!-- Filtros avanzados -->
+            <section class="sidebar-section">
+              <header>
+                <h5 class="sidebar-title">
+                  <i class="bi bi-funnel-fill me-2"></i>
+                  <span>Filtros avanzados</span>
+                </h5>
+              </header>
+              <div class="accordion filter-accordion" id="filterAccordion">
+                <!-- Filtro: Desarrollo Frontend -->
+                <article class="accordion-item border-0 bg-transparent mb-2">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#frontendFilter" aria-expanded="false" aria-controls="frontendFilter">
+                      <i class="bi bi-laptop me-2"></i>
+                      <span>Desarrollo Frontend</span>
+                    </button>
+                  </h2>
+                  <div id="frontendFilter" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                    <div class="accordion-body">
+                      <!-- Opciones de filtro -->
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="frontend1">
+                        <label class="form-check-label text-white" for="frontend1">Lenguajes básicos</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="frontend2">
+                        <label class="form-check-label text-white" for="frontend2">Frameworks y librerías</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="frontend3">
+                        <label class="form-check-label text-white" for="frontend3">Diseño responsivo</label>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Filtro: Desarrollo Backend -->
+                <article class="accordion-item border-0 bg-transparent mb-2">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#backendFilter" aria-expanded="false" aria-controls="backendFilter">
+                      <i class="bi bi-server me-2"></i>
+                      <span>Desarrollo Backend</span>
+                    </button>
+                  </h2>
+                  <div id="backendFilter" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                    <div class="accordion-body">
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="backend1">
+                        <label class="form-check-label text-white" for="backend1">Bases de datos</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="backend2">
+                        <label class="form-check-label text-white" for="backend2">APIs REST</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="backend3">
+                        <label class="form-check-label text-white" for="backend3">Autenticación</label>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Filtro: Lenguajes de Programación -->
+                <article class="accordion-item border-0 bg-transparent mb-2">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#designFilter" aria-expanded="false" aria-controls="designFilter">
+                      <i class="bi bi-palette me-2"></i>
+                      <span>Lenguajes de Programación</span>
+                    </button>
+                  </h2>
+                  <div id="designFilter" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                    <div class="accordion-body">
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="design1">
+                        <label class="form-check-label text-white" for="design1">Python</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="design2">
+                        <label class="form-check-label text-white" for="design2">JavaScript</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="design3">
+                        <label class="form-check-label text-white" for="design3">C++</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="design3">
+                        <label class="form-check-label text-white" for="design3">PHP</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="design3">
+                        <label class="form-check-label text-white" for="design3">Ruby</label>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Filtro: Frameworks -->
+                <article class="accordion-item border-0 bg-transparent mb-2">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#marketingFilter" aria-expanded="false" aria-controls="marketingFilter">
+                      <i class="bi bi-bar-chart-line me-2"></i>
+                      <span>Frameworks</span>
+                    </button>
+                  </h2>
+                  <div id="marketingFilter" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                    <div class="accordion-body">
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="marketing1">
+                        <label class="form-check-label text-white" for="marketing1">React</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="marketing2">
+                        <label class="form-check-label text-white" for="marketing2">Angular</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="marketing3">
+                        <label class="form-check-label text-white" for="marketing3">Vue.js</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="marketing4">
+                        <label class="form-check-label text-white" for="marketing4">Tailwind</label>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <hr class="sidebar-divider" />
+
+            <!-- Recursos y enlaces legales -->
+            <section class="sidebar-section">
+              <header>
+                <h5 class="sidebar-title">
+                  <i class="bi bi-bookmarks-fill me-2"></i>
+                  <span>Recursos</span>
+                </h5>
+              </header>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a href="#" class="sidebar-link">
+                    <i class="bi bi-question-circle-fill"></i>
+                    <span>Centro de ayuda</span>
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="sidebar-link">
+                    <i class="bi bi-info-circle-fill"></i>
+                    <span>Acerca de SERVITECH</span>
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+            <hr class="sidebar-divider" />
+
+            <section class="sidebar-section">
+              <header>
+                <h5 class="sidebar-title">
+                  <i class="bi bi-shield-lock-fill me-2"></i>
+                  <span>Legal</span>
+                </h5>
+              </header>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a href="#" class="sidebar-link d-flex align-items-center">
+                    <i class="bi bi-file-earmark-text-fill me-3"></i>
+                    <span>Política de contenido</span>
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="sidebar-link d-flex align-items-center">
+                    <i class="bi bi-lock-fill me-3"></i>
+                    <span>Política de privacidad</span>
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </aside>
+
+          <!-- Contenido principal -->
+          <section class="main-content-container-custom flex-grow-1 w-100">
+            <!-- Sección de búsqueda de expertos -->
+            <section class="expert-search-section py-5">
+              <div class="container">
+                <header class="text-center mb-5">
+                  <h2 class="text-warning fw-bold mb-4">
+                    <i class="bi bi-search-heart fs-1 me-2"></i> Encuentra tu Experto
+                  </h2>
+                  <p class="text-light lead mx-auto" style="max-width: 600px;">
+                    Filtra por especialización, disponibilidad y más.
+                  </p>
+                </header>
+                <article class="search-card bg-dark border border-warning rounded-4 p-4 p-lg-5 shadow-lg mx-lg-5">
+                  <form class="expert-search-form">
+                    <div class="row g-4">
+                      <!-- Campos del formulario -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="keyword" class="form-label text-warning">
+                            <i class="bi bi-search me-2"></i> Nombre o especialización
+                          </label>
+                          <div class="input-group">
+                            <span class="input-group-text bg-dark border-warning text-warning">
+                              <i class="bi bi-code-slash"></i>
+                            </span>
+                            <input type="text" id="keyword" class="form-control border-warning bg-dark text-white"
+                              placeholder="Ej: Diseñador UX, Desarrollador Fullstack...">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 d-flex align-items-end">
+                        <div class="form-group w-100">
+                          <label class="form-label text-warning">
+                            <i class="bi bi-currency-dollar me-2"></i> Rango de precios
+                          </label>
+                          <div class="d-flex gap-2">
+                            <div class="input-group flex-fill">
+                              <span class="input-group-text bg-dark border-warning text-warning">Mín</span>
+                              <input type="number" class="form-control border-warning bg-dark text-white"
+                                placeholder="$0" min="0" step="5">
+                            </div>
+                            <span class="text-white align-self-center">-</span>
+                            <div class="input-group flex-fill">
+                              <span class="input-group-text bg-dark border-warning text-warning">Máx</span>
+                              <input type="number" class="form-control border-warning bg-dark text-white"
+                                placeholder="$100+" min="0" step="5">
+                            </div>
+                          </div>
+                          <small class="text-muted d-block mt-1">Ingresa el rango en tu moneda local</small>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="availability" class="form-label text-warning">
+                            <i class="bi bi-calendar-check me-2"></i> Disponibilidad
+                          </label>
+                          <div class="input-group">
+                            <span class="input-group-text bg-dark border-warning text-warning">
+                              <i class="bi bi-clock"></i>
+                            </span>
+                            <select id="availability" class="form-select border-warning bg-dark text-white">
+                              <option selected disabled>Selecciona horario...</option>
+                              <option value="manana">Horario Diurno</option>
+                              <option value="tarde">Horario Nocturno</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="form-label text-warning">
+                            <i class="bi bi-star-fill me-2"></i> Valoración mínima
+                          </label>
+                          <div class="star-rating">
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label for="star5"><i class="bi bi-star-fill"></i></label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4"><i class="bi bi-star-fill"></i></label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3"><i class="bi bi-star-fill"></i></label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2"><i class="bi bi-star-fill"></i></label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1"><i class="bi bi-star-fill"></i></label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center mt-4">
+                      <button type="submit" class="btn-search-experts">
+                        <i class="bi bi-search me-2"></i> Buscar Expertos
+                      </button>
+                    </div>
+                  </form>
+                </article>
+              </div>
+            </section>
+
+            <!-- Sección de publicaciones recientes -->
+            <section class="recent-posts py-5">
+              <div class="container">
+                <header class="text-center mb-5">
+                  <h3 class="text-warning fw-bold mb-3">
+                    <i class="bi bi-clock-history fs-1 me-2"></i> Publicaciones Recientes
+                  </h3>
+                  <p class="text-light lead mx-auto" style="max-width: 600px;">
+                    Descubre las últimas solicitudes y proyectos compartidos por nuestra comunidad
+                  </p>
+                </header>
+
+                <!-- Modal para nueva publicación -->
+                <div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="newPostModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark text-light">
+                      <div class="modal-header border-0">
+                        <h5 class="modal-title text-warning" id="newPostModalLabel">Nueva publicación</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <label for="postDetails" class="form-label">Detalles de tu solicitud</label>
+                            <textarea class="form-control bg-dark text-light border-warning" id="postDetails" rows="3" placeholder="Describe tu solicitud..."></textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label for="postTopic" class="form-label">Tema</label>
+                            <select class="form-select bg-dark text-light border-warning" id="postTopic">
+                              <option selected disabled>Selecciona un tema...</option>
+                              <option value="frontend">Desarrollo Frontend</option>
+                              <option value="programming">Lenguajes de programación</option>
+                              <option value="backend">Desarrollo Backend</option>
+                              <option value="frameworks">Frameworks</option>
+                            </select>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-warning">Publicar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <br>
+                <div class="row justify-content-center">
+                  <div class="col-lg-8">
+                    <!-- Publicación 1 -->
+                    <article class="post-card mb-4">
+                      <div class="post-header d-flex align-items-center mb-3">
+                        <div class="user-avatar me-3">
+                          <img src="assets/img/expert/expert08.png" class="rounded-circle" width="40" height="40"
+                            alt="Usuario123">
+                        </div>
+                        <div>
+                          <h6 class="fw-bold text-warning mb-0">Usuario123</h6>
+                          <small class="text-muted"><i class="bi bi-clock me-1"></i>hace 4 horas</small>
+                        </div>
+                      </div>
+                      <div class="post-content mb-3">
+                        <p>Busco asesoría sobre JavaScript desde cero. En horas de la noche de preferencia. Necesito
+                          ayuda con conceptos básicos y algunos proyectos prácticos.</p>
+                      </div>
+                      <div class="post-footer d-flex justify-content-between align-items-center">
+                        <div class="post-actions">
+                          <button class="btn btn-action btn-like">
+                            <i class="bi bi-hand-thumbs-up"></i> <span>14</span>
+                          </button>
+                          <button class="btn btn-action btn-comment ms-2">
+                            <i class="bi bi-chat-left"></i> <span>5</span>
+                          </button>
+                        </div>
+                        <div class="post-meta">
+                          <div class="dropdown">
+                            <button class="btn btn-more dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                              <i class="bi bi-three-dots"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Editar</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i>Eliminar</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-flag me-2"></i>Reportar</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="post-tags mt-2">
+                        <span class="badge bg-warning text-dark me-1">JavaScript</span>
+                        <span class="badge bg-warning text-dark">Principiante</span>
+                      </div>
+                      <!-- Botón Negociar -->
+                      <div class="text-end mt-2">
+                        <button class="btn btn-negotiate" onclick="window.location.href='messages.html'">
+                          <i class="bi bi-cash-coin me-2"></i> Negociar
+                        </button>
+                      </div>
+                    </article>
+
+                    <!-- Publicación 2 -->
+                    <article class="post-card mb-4">
+                      <div class="post-header d-flex align-items-center mb-3">
+                        <div class="user-avatar me-3">
+                          <img src="assets/img/expert/expert07.png" class="rounded-circle" width="40" height="40"
+                            alt="Usuario456">
+                        </div>
+                        <div>
+                          <h6 class="fw-bold text-warning mb-0">Usuario456</h6>
+                          <small class="text-muted"><i class="bi bi-clock me-1"></i>hace 2 horas</small>
+                        </div>
+                      </div>
+                      <div class="post-content mb-3">
+                        <p>Necesito ayuda con el diseño responsivo de mi sitio web. Uso Bootstrap 5 pero tengo problemas
+                          con algunos componentes en móviles. ¿Alguien puede asesorarme?</p>
+                      </div>
+                      <div class="post-footer d-flex justify-content-between align-items-center">
+                        <div class="post-actions">
+                          <button class="btn btn-action btn-like">
+                            <i class="bi bi-hand-thumbs-up"></i> <span>20</span>
+                          </button>
+                          <button class="btn btn-action btn-comment ms-2">
+                            <i class="bi bi-chat-left"></i> <span>8</span>
+                          </button>
+                        </div>
+                        <div class="post-meta">
+                          <div class="dropdown">
+                            <button class="btn btn-more dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                              <i class="bi bi-three-dots"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Editar</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i>Eliminar</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-flag me-2"></i>Reportar</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="post-tags mt-2">
+                        <span class="badge bg-warning text-dark me-1">Bootstrap</span>
+                        <span class="badge bg-warning text-dark me-1">Diseño Responsivo</span>
+                        <span class="badge bg-warning text-dark">CSS</span>
+                      </div>
+                      <!-- Botón Negociar -->
+                      <div class="text-end mt-2">
+                        <button class="btn btn-negotiate" onclick="window.location.href='messages.html'">
+                          <i class="bi bi-cash-coin me-2"></i> Negociar
+                        </button>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Divisor decorativo -->
+            <div class="section-divider py-4">
+              <div class="container">
+                <hr class="border-top">
+              </div>
+            </div>
+
+            <!-- Sección de Testimonios -->
+            <section class="testimonials-section py-5">
+              <div class="container">
+                <header class="text-center mb-5">
+                  <h3 class="text-warning fw-bold mb-3">
+                    <i class="bi bi-chat-left-quote-fill fs-1 me-2"></i> Testimonios de Clientes
+                  </h3>
+                  <p class="text-light lead text-center">Lo que dicen nuestros clientes sobre nuestros servicios</p>
+                </header>
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000"
+                  data-bs-wrap="true">
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+                      aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
+                      aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3"
+                      aria-label="Slide 4"></button>
+                  </div>
+                  <div class="carousel-inner px-4">
+                    <!-- Testimonio 1 -->
+                    <div class="carousel-item active">
+                      <div class="testimonial-item">
+                        <img src="assets/img/expert/expert01.png" class="testimonial-img" alt="Juan Pérez">
+                        <div class="testimonial-content">
+                          <div class="rating mb-2">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                          </div>
+                          <h5 class="text-warning fw-bold">Juan Pérez</h5>
+                          <p class="text-light mb-0">"Gracias a Servitech encontré un experto en desarrollo web que me
+                            ayudó a lanzar mi negocio en línea. ¡Altamente recomendado!"</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="testimonial-item">
+                        <img src="assets/img/expert/expert02.png" class="testimonial-img" alt="María González">
+                        <div class="testimonial-content">
+                          <div class="rating mb-2">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                          </div>
+                          <h5 class="text-warning fw-bold">María González</h5>
+                          <p class="text-light mb-0">"El diseñador gráfico que encontré a través de Servitech transformó
+                            por completo mi marca. Profesionalismo y creatividad excepcionales."</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="testimonial-item">
+                        <img src="assets/img/expert/expert03.png" class="testimonial-img" alt="Carlos Rodríguez">
+                        <div class="testimonial-content">
+                          <div class="rating mb-2">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-half text-warning"></i>
+                          </div>
+                          <h5 class="text-warning fw-bold">Carlos Rodríguez</h5>
+                          <p class="text-light mb-0">"Contraté a un especialista en marketing digital que triplicó mis
+                            leads en 3 meses. Servitech conecta con los mejores profesionales."</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="testimonial-item">
+                        <img src="assets/img/expert/expert04.png" class="testimonial-img" alt="Ana Martínez">
+                        <div class="testimonial-content">
+                          <div class="rating mb-2">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star text-warning"></i>
+                          </div>
+                          <h5 class="text-warning fw-bold">Ana Martínez</h5>
+                          <p class="text-light mb-0">"El servicio de consultoría en TI que recibí fue invaluable para
+                            modernizar mi empresa. Rápido, eficiente y con resultados tangibles."</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Divisor decorativo -->
+            <div class="section-divider py-4">
+              <div class="container">
+                <hr class="border-top">
+              </div>
+            </div>
+
+            <!-- Sección de Preguntas Frecuentes (FAQ) -->
+            <section class="faq-section py-5">
+              <div class="container">
+                <header class="text-center mb-5">
+                  <h3 class="text-warning fw-bold mb-3">
+                    <i class="bi bi-question-circle-fill fs-1 me-2"></i> Preguntas Frecuentes
+                  </h3>
+                  <p class="text-light lead mx-auto px-3" style="max-width: min(100%, 600px);">
+                    Encuentra respuestas a las dudas más comunes sobre nuestros servicios
+                  </p>
+                </header>
+                <div class="row justify-content-center">
+                  <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                      <div class="accordion-item mb-3 border-0">
+                        <h2 class="accordion-header" id="faq1">
+                          <button class="accordion-button bg-dark text-warning shadow-none collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false"
+                            aria-controls="faqCollapse1">
+                            <i class="bi bi-person-plus me-2"></i> ¿Cómo puedo registrarme en la plataforma?
+                          </button>
+                        </h2>
+                        <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faq1"
+                          data-bs-parent="#faqAccordion">
+                          <div class="accordion-body bg-dark-soft">
+                            <p>Puedes registrarte haciendo clic en el botón "Registrarse" en la parte superior de la
+                              página y completando el formulario con tus datos. El proceso es rápido y sencillo:</p>
+                            <ol class="text-light">
+                              <li>Proporciona tu información básica</li>
+                              <li>Verifica tu correo electrónico</li>
+                              <li>Completa tu perfil</li>
+                            </ol>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item mb-3 border-0">
+                        <h2 class="accordion-header" id="faq2">
+                          <button class="accordion-button bg-dark text-warning shadow-none collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false"
+                            aria-controls="faqCollapse2">
+                            <i class="bi bi-currency-dollar me-2"></i> ¿Es gratuito publicar una solicitud?
+                          </button>
+                        </h2>
+                        <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faq2"
+                          data-bs-parent="#faqAccordion">
+                          <div class="accordion-body bg-dark-soft">
+                            <p>Sí, publicar una solicitud en nuestra plataforma es completamente gratuito. No cobramos
+                              por:</p>
+                            <ul class="text-light">
+                              <li>Crear tu proyecto</li>
+                              <li>Recibir propuestas de expertos</li>
+                              <li>Comparar perfiles y presupuestos</li>
+                            </ul>
+                            <p class="text-warning mt-2">Solo pagas cuando aceptas una propuesta y comienzas a trabajar
+                              con el profesional seleccionado.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item mb-3 border-0">
+                        <h2 class="accordion-header" id="faq3">
+                          <button class="accordion-button bg-dark text-warning shadow-none collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false"
+                            aria-controls="faqCollapse3">
+                            <i class="bi bi-chat-left-text me-2"></i> ¿Cómo puedo contactar a un experto?
+                          </button>
+                        </h2>
+                        <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faq3"
+                          data-bs-parent="#faqAccordion">
+                          <div class="accordion-body bg-dark-soft">
+                            <p>Una vez que encuentres un experto que te interese, puedes contactarlo directamente desde
+                              su perfil mediante:</p>
+                            <div class="d-flex flex-wrap gap-3">
+                              <span class="badge bg-warning text-dark"><i class="bi bi-envelope me-1"></i> Mensaje
+                                privado</span> 
+                              <span class="badge bg-warning text-dark"><i class="bi bi-camera-video me-1"></i>
+                                Videollamadas</span>
+                            </div>
+                            <p class="mt-3">Nuestro sistema protege tu información personal hasta que decidas
+                              compartirla con el profesional.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item mb-3 border-0">
+                        <h2 class="accordion-header" id="faq4">
+                          <button class="accordion-button bg-dark text-warning shadow-none collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false"
+                            aria-controls="faqCollapse4">
+                            <i class="bi bi-shield-lock me-2"></i> ¿Cómo protegen mi información personal?
+                          </button>
+                        </h2>
+                        <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faq4"
+                          data-bs-parent="#faqAccordion">
+                          <div class="accordion-body bg-dark-soft">
+                            <p>Tu seguridad es nuestra prioridad. Implementamos múltiples medidas de protección:</p>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="d-flex align-items-start mb-3">
+                                  <i class="bi bi-encryption text-warning fs-5 me-2"></i>
+                                  <div>
+                                    <h6 class="text-warning mb-1">Encriptación SSL</h6>
+                                    <p class="small text-light mb-0">Todos los datos se transmiten cifrados</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="d-flex align-items-start mb-3">
+                                  <i class="bi bi-credit-card-2-back text-warning fs-5 me-2"></i>
+                                  <div>
+                                    <h6 class="text-warning mb-1">Pagos seguros</h6>
+                                    <p class="small text-light mb-0">Plataforma de pagos certificada</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+        </div>
+      </section>
+    </div>
+    <!-- Footer -->
+    <footer id="footer-container"></footer>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/loadHeader.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/loadFooter.js"></script>
+</body>
+
+</html>

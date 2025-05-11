@@ -1,0 +1,265 @@
+:root {
+  --color-primary: #090a10;
+  --color-secondary: #000943;
+  --color-accent: #e7c400;
+  --color-accent-light: #ffd700;
+  --color-dark: #1a1d24;
+  --color-darker: #12141a;
+  --color-light: #ffffff;
+  --color-light-80: rgba(255, 255, 255, 0.8);
+  --color-muted: #6c757d;
+  --color-blue: #007bff;
+
+  --font-base: 'Montserrat', sans-serif;
+  --font-heading: 'Inter', sans-serif;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--color-light);
+  background-color: var(--color-primary);
+}
+
+.bg-dark {
+  background-color: var(--color-dark) !important;
+}
+
+.text-warning {
+  color: var(--color-accent) !important;
+}
+
+/* Sección de Búsqueda */
+.search-section {
+  padding: 4rem 0;
+}
+
+.search-section article.search-card {
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease;
+}
+
+.search-section article.search-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent-light);
+}
+
+.form-control,
+.form-select {
+  background-color: var(--color-dark);
+  border-color: var(--color-accent);
+  color: var(--color-muted) !important;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--color-accent-light);
+  box-shadow: 0 0 0 0.25rem rgba(231, 196, 0, 0.25);
+}
+
+.form-control::placeholder,
+.form-select::placeholder {
+  color: var(--color-muted) !important;
+}
+
+.input-group-text {
+  background-color: var(--color-dark);
+  border-color: var(--color-accent);
+  color: var(--color-muted) !important;
+}
+
+/* Selector de Estrellas */
+.star-rating {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.3rem;
+  direction: ltr; /* Asegurar que las estrellas se marquen de izquierda a derecha */
+}
+
+.star-rating input {
+  display: none; /* Ocultar los inputs de radio */
+}
+
+.star-rating label {
+  font-size: 1.5rem;
+  color: var(--color-muted); /* Color inicial de las estrellas */
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+  color: var(--color-accent); /* Cambiar a amarillo al pasar el cursor */
+}
+
+/* Sección de Expertos */
+.expert-section {
+  padding: 4rem 0;
+  background-color: var(--color-darker);
+}
+
+.expert-section article.expert-card {
+  background-color: var(--color-dark);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(231, 196, 0, 0.123);
+  transition: all 0.5s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.expert-section article.expert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+}
+
+.expert-section article.expert-card .expert-img-container {
+  position: relative;
+  padding: 1rem;
+}
+
+.expert-section article.expert-card .expert-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--color-accent);
+}
+
+.expert-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.expert-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.expert-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.expert-specialty {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.expert-price {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.expert-section article.expert-card .expert-footer {
+  padding: 1rem 1.5rem 1.5rem;
+  width: 100%;
+}
+
+.expert-section article.expert-card .expert-footer .btn {
+  transition: all 0.3s ease;
+}
+
+.expert-section article.expert-card .expert-footer .btn.btn-warning {
+  background-color: var(--color-blue);
+  color: var(--color-light);
+  border: none;
+}
+
+.expert-section article.expert-card .expert-footer .btn.btn-warning:hover {
+  background-color: darken(var(--color-blue), 10%);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Botón Buscar Expertos */
+.btn-search-experts {
+  background-color: var(--color-blue);
+  color: var(--color-light);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-search-experts:hover {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .expert-section article.expert-card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .expert-section article.expert-card {
+    padding: 1rem;
+  }
+}
+
+/* Sección de Testimonios */
+.testimonial-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-light);
+  box-shadow: 0 5px 15px rgba(235, 235, 235, 0.527);
+  margin-bottom: 25px;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-img:hover {
+  transform: scale(1.05);
+}
+
+.testimonials-section {
+  background-color: var(--color-dark);
+  background-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.678) 0%, transparent 70%);
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255, 255, 255, 0.05)" d="M0,0 L100,0 L100,100 L0,100 Z"/></svg>');
+  opacity: 0.3;
+  z-index: 0;
+}

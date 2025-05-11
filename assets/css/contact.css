@@ -1,0 +1,327 @@
+/* ====================== */
+/* Variables Globales */
+/* ====================== */
+:root {
+  --color-primary: #090a10;
+  --color-secondary: #000943;
+  --color-accent: #e7c400;
+  --color-accent-light: #ffd700;
+  --color-dark: #212529;
+  --color-light: #ffffff;
+  --color-light-80: rgba(255, 255, 255, 0.8);
+  --color-muted: #a7a7a7;
+  --negro: #000000; /* Added missing variable */
+  --negro: #000000; /* Added missing variable */
+  
+  --font-base: 'Montserrat', sans-serif;
+  --font-heading: 'Inter', sans-serif;
+  
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ====================== */
+/* Estilos Base */
+/* ====================== */
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-muted);
+  color: var(--color-light);
+  line-height: 1.6;
+}
+
+/* ====================== */
+/* Sección de Contacto */
+/* ====================== */
+.contact-section {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+.contact-section article.contact-container {
+  background-color: var(--color-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.contact-section aside.contact-info {
+  background-color: var(--gris-oscuro);
+  color: var(--color-light);
+}
+
+.contact-section aside.contact-info h3 {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+}
+
+.contact-section aside.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-section aside.contact-info li {
+  font-size: var(--text-md);
+  margin-bottom: var(--space-md);
+}
+
+.contact-section aside.contact-info a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.contact-section aside.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.contact-section section.contact-form {
+  background-color: var(--color-dark);
+}
+
+.contact-section section.contact-form header h2 {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+}
+
+.contact-section section.contact-form header p {
+  font-size: var(--text-md);
+  color: var(--color-light-80);
+}
+
+.contact-section section.contact-form .form-label {
+  font-size: var(--text-sm);
+  color: var(--color-light-90);
+}
+
+.contact-section section.contact-form .form-control {
+  background-color: var(--color-primary);
+  color: var(--color-muted); /* Cambiar el color del texto a muted */
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-md);
+}
+
+.contact-section section.contact-form .form-control::placeholder {
+  color: var(--color-muted); /* Cambiar el color del placeholder a muted */
+}
+
+.contact-section section.contact-form .btn {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  font-weight: 600;
+  transition: all var(--transition-normal);
+}
+
+.contact-section section.contact-form .btn:hover {
+  background-color: var(--color-accent-light);
+  color: var(--color-dark);
+}
+
+/* ============================ */
+/* Estilo para la sección de Preguntas Frecuentes (FAQ) */
+/* ============================ */
+.faq-section {
+  background-color: var(--gris-oscuro);
+  padding: var(--space-3xl) 0;
+}
+
+.faq-section h3 {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+}
+
+.faq-section p {
+  font-size: var(--text-md);
+  color: var(--color-light-80);
+}
+
+.accordion-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.accordion-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.accordion-button {
+  background-color: var(--color-dark);
+  color: var(--color-accent);
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+.accordion-body {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+
+/* Alertas */
+.alert {
+  background-color: var(--color-accent-light);
+  color: var(--color-dark);
+  border: 1px solid var(--color-accent);
+}
+
+/* Badges */
+.badge {
+  padding: 0.5rem 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.badge:hover {
+  background-color: var(--color-accent) !important;
+  color: var(--color-dark) !important;
+}
+
+/* Botones */
+.btn-warning {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ====================== */
+/* RESPONSIVE      */
+/* ====================== */
+@media (max-width: 992px) {
+  .hero-title {
+      font-size: var(--text-2xl);
+  }
+  
+  .hero-subtitle {
+      font-size: var(--text-xl);
+  }
+  
+  .hero-features {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .feature-item {
+      max-width: 100%;
+  }
+  
+  .carousel-control-prev {
+      left: 2%;
+  }
+  
+  .carousel-control-next {
+      right: 2%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+      padding: var(--space-2xl) 0;
+  }
+  
+  .section-title {
+      font-size: var(--text-2xl);
+  }
+  
+  .specialties-grid,
+  .features-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
+  .testimonials-section {
+      padding: 40px 0;
+  }
+  
+  .testimonial-img {
+      width: 90px;
+      height: 90px;
+  }
+  
+  .testimonial-content {
+      padding: 20px;
+      max-width: 90%;
+  }
+  
+  .testimonial-content h5 {
+      font-size: 1.2rem;
+  }
+  
+  .testimonial-content p {
+      font-size: 1rem;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+      width: 40px;
+      height: 40px;
+      background-size: 1.2rem;
+  }
+  
+  .accordion-button {
+      font-size: 1rem;
+      padding: 1rem 1.25rem;
+  }
+  
+  .accordion-body {
+      padding: 1.25rem;
+  }
+  
+  .faq-section {
+      padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+      font-size: var(--text-xl);
+  }
+  
+  .hero-subtitle {
+      font-size: var(--text-lg);
+  }
+  
+  .section-title {
+      font-size: var(--text-xl);
+  }
+  
+  .feature-card {
+      padding: var(--space-lg);
+  }
+  
+  .carousel-indicators [data-bs-target] {
+      width: 8px;
+      height: 8px;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+      display: none;
+  }
+  
+  .accordion-button i {
+      font-size: 1em;
+  }
+  
+  .badge {
+      padding: 0.4rem 0.6rem;
+      font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,153 @@
+<header class="site-header">
+  <nav class="navbar navbar-expand-lg navbar-dark custom-navbar container-fluid">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/logo-servitech-blanco.svg"
+             alt="Logo Servitech"
+             class="site-logo"
+             width="200" height="50" loading="eager">
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar"
+              aria-controls="mainNavbar"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="experts.html">Expertos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="feed.html">Feed</a></li>
+        </ul>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-warning border border-warning"
+                  data-bs-toggle="modal"
+                  data-bs-target="#authModal"
+                  data-auth-type="login">
+            <i class="bi bi-box-arrow-in-right"></i> Iniciar sesión
+          </button>
+          <button class="btn btn-register"
+                  data-bs-toggle="modal"
+                  data-bs-target="#authModal"
+                  data-auth-type="register">
+            <i class="bi bi-person-plus"></i> Registrarse
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Modales (login / register ) -->
+<!-- MODAL DE AUTENTICACIÓN -->
+<div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white border border-warning">
+      <div class="modal-header border-bottom border-warning">
+        <h5 class="modal-title" id="authModalLabel">Autenticación</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Tabs -->
+        <ul class="nav nav-tabs nav-justified mb-4" id="authTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-tab-pane" type="button" role="tab">Iniciar Sesión</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-tab-pane" type="button" role="tab">Registrarse</button>
+          </li>
+        </ul>
+
+        <!-- Contenido -->
+        <div class="tab-content" id="authTabsContent">
+          <!-- Login -->
+          <div class="tab-pane fade show active" id="login-tab-pane" role="tabpanel">
+            <form id="loginForm">
+              <div class="mb-3">
+                <label for="loginEmail" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="loginEmail" required />
+              </div>
+              <div class="mb-3 position-relative">
+                <label for="loginPassword" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="loginPassword" required />
+                <button type="button" class="btn btn-link position-absolute end-0 top-50 translate-middle-y pe-0" id="toggleLoginPassword">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+              <div class="mb-3 d-flex justify-content-between">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="rememberMe" />
+                  <label class="form-check-label" for="rememberMe">Recordarme</label>
+                </div>
+                <a href="#" class="text-warning" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" data-bs-dismiss="modal">¿Olvidaste tu contraseña?</a>
+              </div>
+              <button type="submit" class="btn btn-warning w-100 mb-3">Ingresar</button>
+            </form>
+          </div>
+
+          <!-- Registro -->
+          <div class="tab-pane fade" id="register-tab-pane" role="tabpanel">
+            <form id="registerForm">
+              <div class="mb-3">
+                <label for="registerName" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="registerName" required />
+              </div>
+              <div class="mb-3">
+                <label for="registerEmail" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="registerEmail" required />
+              </div>
+              <div class="mb-3 position-relative">
+                <label for="registerPassword" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="registerPassword" required />
+                <button type="button" class="btn btn-link position-absolute end-0 top-50 translate-middle-y pe-0" id="toggleRegisterPassword">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+              <div class="mb-3 position-relative">
+                <label for="registerConfirmPassword" class="form-label">Confirmar contraseña</label>
+                <input type="password" class="form-control" id="registerConfirmPassword" required />
+                <button type="button" class="btn btn-link position-absolute end-0 top-50 translate-middle-y pe-0" id="toggleConfirmPassword">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="acceptTerms" required />
+                <label class="form-check-label" for="acceptTerms">Acepto los <a href="#" class="text-warning">Términos y condiciones</a></label>
+              </div>
+              <button type="submit" class="btn btn-warning w-100 mb-3">Registrarse</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Recuperar Contraseña -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white border border-warning">
+      <div class="modal-header border-bottom border-warning">
+        <h5 class="modal-title">Recuperar Contraseña</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="forgotPasswordForm">
+          <div class="mb-3">
+            <label for="recoveryEmail" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="recoveryEmail" required />
+          </div>
+          <button type="submit" class="btn btn-warning w-100">Enviar enlace de recuperación</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS + auth -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/auth.js"></script>
+

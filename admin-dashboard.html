@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiTech Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body>
+  <!-- Contenedor principal -->
+  <div class="main-content">
+    <!-- Encabezado superior -->
+    <header class="admin-header">
+      <!-- Botón para mostrar/ocultar el menú en dispositivos móviles -->
+      <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle">
+        <i class="bi bi-list"></i> Menú
+      </button>
+      
+      <!-- Barra de búsqueda y menú de usuario -->
+      <div class="d-flex align-items-center gap-3">
+        <div class="input-group" style="width: 300px;">
+          <input type="text" class="form-control" placeholder="Buscar...">
+          <button class="btn btn-primary" type="button">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        
+        <!-- Menú desplegable del usuario -->
+        <div class="dropdown user-dropdown">
+          <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Usuario">
+            <span class="ms-2 d-none d-md-inline">Admin User</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i> Perfil</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> Configuración</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i> Cerrar sesión</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Contenido principal -->
+    <main class="container-fluid py-4">
+      <header class="page-header-container">
+        <h1 class="page-title">Panel de administración</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+          </ol>
+        </nav>
+        <div class="header-actions">
+          <button class="period-filter">
+            <i class="bi bi-calendar"></i> Último mes
+          </button>
+          <button class="download-report">
+            <i class="bi bi-download"></i> Descargar Reporte
+          </button>
+        </div>
+      </header>
+      
+      <!-- Tarjetas de estadísticas -->
+      <section class="row g-4 mb-4">
+        <!-- Tarjeta: Usuarios totales -->
+        <article class="col-md-6 col-lg-3">
+          <div class="stat-card card bg-primary text-white">
+            <article class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="text-uppercase text-white-50">Usuarios totales</h6>
+                  <h2 class="mb-0">1,254</h2>
+                </div>
+                <i class="bi bi-people card-icon"></i>
+              </div>
+              <div class="mt-3">
+                <span class="badge bg-white text-primary">+12% este mes</span>
+              </div>
+            </article>
+          </div>
+        </article>
+        
+        <!-- Tarjeta: Expertos activos -->
+        <article class="col-md-6 col-lg-3">
+          <div class="stat-card card bg-success text-white">
+            <article class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="text-uppercase text-white-50">Expertos activos</h6>
+                  <h2 class="mb-0">328</h2>
+                </div>
+                <i class="bi bi-person-check card-icon"></i>
+              </div>
+              <div class="mt-3">
+                <span class="badge bg-white text-success">+8% este mes</span>
+              </div>
+            </article>
+          </div>
+        </article>
+        
+        <!-- Tarjeta: Asesorías este mes -->
+        <article class="col-md-6 col-lg-3">
+          <div class="stat-card card bg-warning text-dark">
+            <article class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="text-uppercase text-dark-50">Asesorías este mes</h6>
+                  <h2 class="mb-0">156</h2>
+                </div>
+                <i class="bi bi-chat-dots card-icon"></i>
+              </div>
+              <div class="mt-3">
+                <span class="badge bg-dark text-warning">+24% desde ayer</span>
+              </div>
+            </article>
+          </div>
+        </article>
+        
+        <!-- Tarjeta: Ingresos -->
+        <article class="col-md-6 col-lg-3">
+          <div class="stat-card card bg-info text-white">
+            <article class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="text-uppercase text-white-50">Ingresos</h6>
+                  <h2 class="mb-0">$12,540</h2>
+                </div>
+                <i class="bi bi-currency-dollar card-icon"></i>
+              </div>
+              <div class="mt-3">
+                <span class="badge bg-white text-info">+18% este mes</span>
+              </div>
+            </article>
+          </div>
+        </article>
+      </section>
+      
+      <!-- Secciones de contenido -->
+      <section class="row g-4 mb-4">
+        <!-- Expertos destacados -->
+        <article class="col-lg-6">
+          <div class="card">
+            <header class="card-header bg-white">
+              <h5 class="mb-0">Expertos destacados</h5>
+            </header>
+            <article class="card-body">
+              <!-- Lista de expertos -->
+              <div class="expert-card mb-3">
+                <h5>Mario Velázquez</h5>
+                <p>Desarrollo Web</p>
+              </div>
+              
+              <div class="expert-card mb-3">
+                <h5>Ana García</h5>
+                <p>UX/UI Design</p>
+              </div>
+              
+              <div class="expert-card">
+                <h5>Pedro Ramírez</h5>
+                <p>Mobile Development</p>
+              </div>
+              
+              <div class="text-center mt-3">
+                <a href="#" class="btn btn-outline-primary">Ver todos los expertos</a>
+              </div>
+            </article>
+          </div>
+        </article>
+        
+        <!-- Actividad reciente -->
+        <article class="col-lg-6">
+          <div class="card">
+            <header class="card-header bg-white">
+              <h5 class="mb-0">Actividad reciente</h5>
+            </header>
+            <article class="card-body">
+              <!-- Lista de actividades -->
+              <div class="activity-item">
+                <div class="activity-title">Nuevo experto registrado</div>
+                <div class="activity-description">Alejandro Ruiz se ha registrado en Cloud Computing.</div>
+              </div>
+              
+              <div class="activity-item">
+                <div class="activity-title">Nueva solicitud de soporte</div>
+                <div class="activity-description">María López reportó un error en pagos.</div>
+              </div>
+              
+              <div class="activity-item">
+                <div class="activity-title">Sesión completada</div>
+                <div class="activity-description">Mario Velázquez terminó sesión con Juan Martínez (S+).</div>
+              </div>
+              
+              <div class="text-center mt-3">
+                <a href="#" class="btn btn-outline-primary">Ver toda la actividad</a>
+              </div>
+            </article>
+          </div>
+        </article>
+      </section>
+      
+      <!-- Últimas solicitudes -->
+      <section class="row">
+        <article class="col-12">
+          <div class="card">
+            <header class="card-header bg-white">
+              <h5 class="mb-0">Últimas solicitudes</h5>
+            </header>
+            <article class="card-body">
+              <!-- Tabla de solicitudes -->
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Usuario</th>
+                      <th>Tipo</th>
+                      <th>Categoría</th>
+                      <th>Fecha</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#ST-1234</td>
+                      <td>María López</td>
+                      <td>Soporte técnico</td>
+                      <td>Pagos</td>
+                      <td>13/04/2025</td>
+                      <td><span class="badge bg-warning text-dark">Pendiente</span></td>
+                      <td><button class="btn btn-sm btn-primary"><i class="bi bi-check"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td>#ST-1233</td>
+                      <td>Juan Martínez</td>
+                      <td>Consultoría</td>
+                      <td>Desarrollo Web</td>
+                      <td>12/04/2025</td>
+                      <td><span class="badge bg-success text-white">Completado</span></td>
+                      <td><button class="btn btn-sm btn-primary"><i class="bi bi-check"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td>#ST-1232</td>
+                      <td>Sofía Rodríguez</td>
+                      <td>Consultoría</td>
+                      <td>UX/UI</td>
+                      <td>11/04/2025</td>
+                      <td><span class="badge bg-info text-white">En progreso</span></td>
+                      <td><button class="btn btn-sm btn-primary"><i class="bi bi-check"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td>#ST-1231</td>
+                      <td>Carlos Pérez</td>
+                      <td>Soporte técnico</td>
+                      <td>Cuenta</td>
+                      <td>10/04/2025</td>
+                      <td><span class="badge bg-success text-white">Completado</span></td>
+                      <td><button class="btn btn-sm btn-primary"><i class="bi bi-check"></i></button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <div class="text-center mt-3">
+                <a href="#" class="btn btn-outline-primary">Ver todas las solicitudes</a>
+              </div>
+            </article>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal de confirmación de cierre de sesión -->
+  <div class="modal fade" id="logoutConfirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmar cierre de sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de que deseas cerrar sesión?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger">Cerrar sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/components/navbarLoader.js"></script>
+  <script src="assets/js/adminCommon.js"></script>
+</body>
+</html>

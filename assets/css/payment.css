@@ -1,0 +1,156 @@
+:root {
+  --color-primary: #090a10;
+  --color-secondary: #000943;
+  --color-accent: #e7c400;
+  --color-accent-light: #ffd700;
+  --color-dark: #1a1d24;
+  --color-darker: #12141a;
+  --color-light: #ffffff;
+  --color-light-80: rgba(255, 255, 255, 0.8);
+  --color-muted: #6c757d;
+  --color-blue: #007bff;
+  --font-base: "Montserrat", sans-serif;
+  --font-heading: "Inter", sans-serif;
+  --font-brand: "Miriam Libre", sans-serif;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xs: 0.75rem;
+  /* Botón CTA */
+  --bg-cta-btn: var(--amarillo);
+  --color-cta-btn: var(--negro);
+  --b-cta-btn: var(--amarillo); 
+  --br-btn: 25px;
+  --p-cta-btn: 8px 40px;
+  --ff-btn: var(--fuente-principal);
+  --fs-cta-btn: var(--tam-subtitulo);
+  --fw-btn: var(--peso-regular);
+  --cursor-btn: pointer;
+
+  /* Botón color secundario */
+  --bg-sec-btn: var(--azul-claro);
+  --color-sec-btn: var(--negro);
+  --b-sec-btn: var(--amarillo);
+  --p-sec-btn: 8px 40px;
+  --fs-sec-btn: var(--tam-subtitulo);
+}
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-darker);
+  color: var(--color-dark); 
+}
+
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--color-light);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  padding: 1rem;
+}
+
+.card-header h5,
+.card-header p,
+.card-header h6 {
+  margin: 0;
+}
+
+.card-header h6 {
+  font-size: var(--text-lg);
+  font-weight: bold;
+}
+
+.list-group-item {
+  cursor: pointer;
+  transition: background-color var(--transition-normal);
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-size: var(--text-base);
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  border: 1px solid var(--color-muted);
+}
+
+.list-group-item img {
+  border-radius: 5px;
+}
+
+.list-group-item:hover {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+.payment-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--color-light);
+  box-shadow: var(--shadow-lg);
+}
+
+.payment-header {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  padding: 1rem;
+}
+
+.payment-header h5,
+.payment-header p,
+.payment-header h6 {
+  margin: 0;
+}
+
+.payment-header h6 {
+  font-size: var(--text-lg);
+  font-weight: bold;
+}
+
+.payment-methods .list-group-item {
+  cursor: pointer;
+  transition: background-color var(--transition-normal);
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-size: var(--text-base);
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  border: 1px solid var(--color-muted);
+}
+
+.payment-methods .list-group-item:hover {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+.form-label {
+  font-size: var(--text-base);
+  font-weight: bold;
+  color: var(--color-dark); /* Cambiado a negro */
+}
+
+.form-control,
+.form-select {
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-muted);
+  color: var(--color-light);
+  padding: 0.5rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: 0 0 0 0.25rem rgba(231, 196, 0, 0.25);
+}
+
+h6 {
+  font-size: var(--text-lg);
+  color: var(--color-light);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: var(--text-base);
+  color: var(--color-dark); /* Cambiado a negro */
+}

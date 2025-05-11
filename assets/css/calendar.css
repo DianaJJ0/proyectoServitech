@@ -1,0 +1,182 @@
+:root {
+  --color-primary: #090a10;
+  --color-secondary: #000943;
+  --color-accent: #e7c400;
+  --color-accent-light: #ffd700;
+  --color-dark: #1a1d24;
+  --color-darker: #12141a;
+  --color-light: #ffffff;
+  --color-light-80: rgba(255, 255, 255, 0.8);
+  --color-muted: #6c757d;
+  --color-blue: #007bff;
+  --font-base: "Montserrat", sans-serif;
+  --font-heading: "Inter", sans-serif;
+  --font-brand: "Miriam Libre", sans-serif;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xs: 0.75rem;
+  /* Botón CTA */
+  --bg-cta-btn: var(--amarillo);
+  --color-cta-btn: var(--negro);
+  --b-cta-btn: var(--amarillo); 
+  --br-btn: 25px;
+  --p-cta-btn: 8px 40px;
+  --ff-btn: var(--fuente-principal);
+  --fs-cta-btn: var(--tam-subtitulo);
+  --fw-btn: var(--peso-regular);
+  --cursor-btn: pointer;
+
+  /* Botón color secundario */
+  --bg-sec-btn: var(--azul-claro);
+  --color-sec-btn: var(--negro);
+  --b-sec-btn: var(--amarillo);
+  --p-sec-btn: 8px 40px;
+  --fs-sec-btn: var(--tam-subtitulo);
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-blue);
+  text-align: center;
+}
+
+p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+button {
+  border-radius: 5px;
+  color: var(--color-light);
+  border-color: var(--color-muted);
+}
+
+button:hover {
+  background-color: var(--color-muted);
+  color: var(--color-dark);
+}
+
+button.btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+button.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: var(--color-light);
+}
+
+button:disabled {
+  background-color: #333;
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
+.row div {
+  color: var(--color-light);
+}
+
+img.rounded-circle {
+  border: 3px solid var(--color-accent);
+}
+
+p.text-warning {
+  font-size: 1rem;
+  color: var(--color-accent-light);
+}
+
+h6 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+#calendar {
+  background-color: var(--color-dark);
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+}
+
+#calendar header {
+  color: var(--color-light);
+  font-size: 1.3rem;
+}
+
+#calendar table {
+  width: 100%;
+  font-size: 1rem;
+}
+
+#calendar th, #calendar td {
+  padding: 10px;
+  border: 1px solid var(--color-muted);
+}
+
+#calendar td {
+  cursor: pointer;
+}
+
+#calendar td:hover {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+aside h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-light);
+}
+
+aside .row div {
+  margin-bottom: 10px;
+}
+
+aside .row button {
+  width: 100%;
+  border-radius: 5px;
+  color: var(--color-light);
+  border-color: var(--color-muted);
+}
+
+aside .row button:hover {
+  background-color: var(--color-muted);
+  color: var(--color-dark);
+}
+
+.col-md-4 {
+  margin-left: 10px; /* Ajustar margen para las horas disponibles */
+}
+
+.col-md-5 {
+  margin-left: 20px; /* Mover las horas más a la derecha */
+}
+
+.container {
+  max-width: 1200px;
+}
+
+@media (max-width: 992px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col-lg-4, .col-lg-8 {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  article#calendar {
+    margin-bottom: 20px;
+  }
+}
